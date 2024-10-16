@@ -1,17 +1,17 @@
-import { useState } from 'react';
 import './App.css'
 import Clock from './components/Clock/Clock';
 import DateOfDay from './components/DateOfDay/DateOfDay';
+import { useToggler } from './hooks/toggler.hook';
 
 function App() {
 
-  const [isTime, setTime] = useState(true);
+  const [isTime, toggleTime] = useToggler(true);
 
   return (
     <>
       <h1>Exo - Horloge</h1>
 
-      <div onClick={() => setTime(old => !old)}>
+      <div onClick={toggleTime}>
         {isTime ? (
           <Clock />
         ) : (
